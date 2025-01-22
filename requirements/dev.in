@@ -1,0 +1,24 @@
+-r prod.in
+
+# Development tools
+jupyter
+notebook
+
+# Code analysis
+mypy-extensions
+pydantic
+mypy
+flake8
+bandit
+nbqa
+
+# Testing
+hypothesis
+pytest
+coverage
+httpx
+openapi_spec_validator
+
+# Type stubs
+types-PyYAML
+
