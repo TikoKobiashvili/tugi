@@ -1,27 +1,16 @@
-name: test-service
-
 services:
   app:
-    image: test-service
-    pull_policy: build
     build: .
-    develop:
-      watch:
-        - path: app
-          action: sync+restart
-          target: /opt/app/app
-        - path: requirements
-          action: rebuild
-        - path: Dockerfile
-          action: rebuild
     env_file:
       - .env
+    volumes:
+      - ./app:/opt/app/app  # Mount local app directory to container
+      - ./tugi/logs:/opt/app/logs  # Mount the logs directory from host
     healthcheck:
-      test: [ "CMD", "curl", "-s", "http://localhost:8041/health" ]
+      test: ["CMD", "curl", "-s", "http://localhost:8041/health"]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 10s
     ports:
       - "8041:8041"
-
