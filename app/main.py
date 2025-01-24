@@ -7,8 +7,7 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
-from app.routers import health_check, spec
-from app.routers import ai
+from app.routers import health_check, spec, ai
 
 
 class HealthCheckFilter(logging.Filter):

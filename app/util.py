@@ -36,7 +36,7 @@ def get_token() -> str:
     return token
 
 
-def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)) -> None:
+async def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)) -> None:
     if credentials.credentials != get_token():
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

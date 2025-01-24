@@ -14,3 +14,11 @@ class SentimentRequest(BaseModel):
 
 class SentimentResponse(BaseModel):
     sentiment: Sentiment
+
+
+class AsyncTaskRequest(BaseModel):
+    number: int
+
+
+class AsyncTaskResponse(BaseModel):
+    result: int
