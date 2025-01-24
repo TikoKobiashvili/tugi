@@ -6,7 +6,7 @@ from app.util import override_token
 client = TestClient(app)
 
 
-def test_sentiment_analysis():
+def test_sentiment_analysis() -> None:
     override_token("test_token")
 
     headers = {
@@ -17,7 +17,7 @@ def test_sentiment_analysis():
     assert response.json()["sentiment"] in ["positive", "negative", "neutral"]
 
 
-def test_async_task():
+def test_async_task() -> None:
     override_token("test_token")
 
     headers = {
