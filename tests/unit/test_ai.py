@@ -1,11 +1,14 @@
 from fastapi.testclient import TestClient
 
 from app.main import app
+from app.util import override_token
 
 client = TestClient(app)
 
 
 def test_sentiment_analysis():
+    override_token("test_token")
+
     headers = {
         "Authorization": "Bearer test_token"
     }
@@ -15,6 +18,8 @@ def test_sentiment_analysis():
 
 
 def test_async_task():
+    override_token("test_token")
+
     headers = {
         "Authorization": "Bearer test_token"
     }
